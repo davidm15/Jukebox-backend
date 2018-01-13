@@ -1,12 +1,13 @@
+/*
 package at.fh.ima.swengs.jukeboxbackend.model;
-
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 
+*/
 /**
  * Created by johann on 8/23/16.
- */
+ *//*
+
 
 @Entity
 
@@ -50,3 +51,4 @@ public class FlightBooking {
         this.passenger = passenger;
     }
 }
+*/
