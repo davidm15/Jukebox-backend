@@ -17,9 +17,8 @@ public class UserController{
     @Autowired
     UserRepository userRepository;
 
-    @RequestMapping("/listUsers")
+    @RequestMapping(value = {"/","/listUsers"})
     public Object listUsers() {
-
         return userRepository.findAll();
     }
 
