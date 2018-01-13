@@ -3,10 +3,9 @@ package at.fh.ima.swengs.jukeboxbackend.model;
 
 import javax.persistence.*;
 
-*/
-/**
+*
  * Created by johann on 8/23/16.
- *//*
+
 
 
 @Entity
