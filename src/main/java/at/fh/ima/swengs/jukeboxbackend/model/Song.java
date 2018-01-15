@@ -16,7 +16,7 @@ public class Song{
     @Column(name = "id")
     @JsonProperty
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    private int id;
 
 
     @JsonProperty
@@ -39,11 +39,11 @@ public class Song{
         this.length = length;
     }
 
-    public long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -86,10 +86,10 @@ public class Song{
 
     @Override
     public int hashCode() {
-        int result = (int) (id ^ (id >>> 32));
+        int result = (id ^ (id >>> 32));
         result = 31 * result + title.hashCode();
         result = 31 * result + (artist != null ? artist.hashCode() : 0);
-        result = 31 * result + length;
+        result = 31 * result + (length ^ (length >>> 32));
         return result;
     }
 }
