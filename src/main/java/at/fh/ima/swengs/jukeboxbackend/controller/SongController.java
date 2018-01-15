@@ -4,7 +4,6 @@ import at.fh.ima.swengs.jukeboxbackend.dto.SongConverter;
 import at.fh.ima.swengs.jukeboxbackend.dto.SongDTO;
 import at.fh.ima.swengs.jukeboxbackend.model.Song;
 import at.fh.ima.swengs.jukeboxbackend.repository.SongRepository;
-import jdk.nashorn.internal.runtime.regexp.joni.exception.ErrorMessages;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -12,9 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import javax.lang.model.type.ErrorType;
 import java.util.List;
-import java.util.logging.ErrorManager;
 
 //@CrossOrigin(origins = "http://localhost:4200")
 @RestController

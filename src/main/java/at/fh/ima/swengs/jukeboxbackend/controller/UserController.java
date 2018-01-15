@@ -12,7 +12,7 @@ public class UserController{
     @Autowired
     UserRepository userRepository;
 
-    @RequestMapping(value = {"/","/listUsers"})
+    @RequestMapping("/listUsers")
     public Object listUsers() {
         return userRepository.findAll();
     }
