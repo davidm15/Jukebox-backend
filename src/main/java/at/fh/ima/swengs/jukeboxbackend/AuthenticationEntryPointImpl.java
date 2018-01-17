@@ -1,3 +1,4 @@
+/*
 package at.fh.ima.swengs.jukeboxbackend;
 
 import java.io.IOException;
@@ -31,3 +32,4 @@ public class AuthenticationEntryPointImpl extends BasicAuthenticationEntryPoint 
     }
 
 }
+*/
