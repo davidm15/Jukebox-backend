@@ -2,11 +2,9 @@ package at.fh.ima.swengs.jukeboxbackend.model;
 
 
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.persistence.*;
-import java.util.Date;
 
 @Entity
 @Table(name = "song")
@@ -14,36 +12,39 @@ public class Song{
 
     @Id
     @Column(name = "id")
-    @JsonProperty
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
 
-
-    @JsonProperty
-    @Column(name = "title")
+    @Column(name = "title", nullable = false, length = 30)
     private String title;
 
-    @JsonIgnore
-    @Column(name = "artist")
+    @Column(name = "artist", nullable = false, length = 50)
     private String artist;
 
-    @JsonIgnore
-    @Column(name = "length")
+    @Column(name = "length", nullable = false, length = 3)
     private int length;
+
+    @ManyToOne
+    private User uploader;
+
+    @Version
+    long version;
 
     public Song() { }
 
-    public Song(String title, String artist, int length) {
+    public Song(String title, String artist, int length, User uploader) {
+        super();
         this.title = title;
         this.artist = artist;
         this.length = length;
+        this.uploader = uploader;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -71,25 +72,12 @@ public class Song{
         this.length = length;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        Song song = (Song) o;
-
-        if (id != song.id) return false;
-        if (length != song.length) return false;
-        if (!title.equals(song.title)) return false;
-        return artist != null ? artist.equals(song.artist) : song.artist == null;
+    public User getUploader() {
+        return uploader;
     }
 
-    @Override
-    public int hashCode() {
-        int result = (id ^ (id >>> 32));
-        result = 31 * result + title.hashCode();
-        result = 31 * result + (artist != null ? artist.hashCode() : 0);
-        result = 31 * result + (length ^ (length >>> 32));
-        return result;
+    public void setUploader(User uploader) {
+        this.uploader = uploader;
     }
+
 }

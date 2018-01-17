@@ -1,4 +1,3 @@
-/*
 package at.fh.ima.swengs.jukeboxbackend;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,4 +38,3 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
 }
-*/

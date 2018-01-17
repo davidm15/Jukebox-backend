@@ -14,26 +14,35 @@ public class User{
 
     @Id
     @Column(name = "id")
-    @JsonProperty
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(name = "username")
-    @JsonProperty
+    @Column(name = "username", nullable = false, length = 30)
     private String username;
 
-    @JsonIgnore
     @Column(name = "password")
     private String password;
+
+    @Version
+    long version;
 
     public User() { }
 
     public User(String username, String password) {
+        super();
         this.username = username;
         this.password = password;
     }
 
-    public String username() {
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getUsername() {
         return username;
     }
 
@@ -47,25 +56,5 @@ public class User{
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        User user = (User) o;
-
-        if (id != user.id) return false;
-        if (username != null ? !username.equals(user.username) : user.username != null) return false;
-        return password != null ? password.equals(user.password) : user.password == null;
-    }
-
-    @Override
-    public int hashCode() {
-        int result = (int) (id ^ (id >>> 32));
-        result = 31 * result + (username != null ? username.hashCode() : 0);
-        result = 31 * result + (password != null ? password.hashCode() : 0);
-        return result;
     }
 }
