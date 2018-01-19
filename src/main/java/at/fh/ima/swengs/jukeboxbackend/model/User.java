@@ -4,6 +4,7 @@ package at.fh.ima.swengs.jukeboxbackend.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -20,18 +21,31 @@ public class User{
     @Column(name = "username", nullable = false, length = 30)
     private String username;
 
-    @Column(name = "password")
+    @Column(name = "password", nullable = false, length = 30)
     private String password;
+
+    @Column(name = "firstname", nullable = false, length = 30)
+    private String firstname;
+
+    @Column(name = "lastname", nullable = false, length = 30)
+    private String lastname;
+
+    @Column(name = "email", nullable = false, length = 30)
+    private String email;
 
     @Version
     long version;
 
     public User() { }
 
-    public User(String username, String password) {
-        super();
+    public User(long id, String username, String password, String firstname, String lastname, String email, long version) {
+        this.id = id;
         this.username = username;
         this.password = password;
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.email = email;
+        this.version = version;
     }
 
     public long getId() {
@@ -56,5 +70,37 @@ public class User{
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getFirstname() {
+        return firstname;
+    }
+
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
+    }
+
+    public String getLastname() {
+        return lastname;
+    }
+
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public long getVersion() {
+        return version;
+    }
+
+    public void setVersion(long version) {
+        this.version = version;
     }
 }
