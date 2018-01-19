@@ -1,5 +1,6 @@
 package at.fh.ima.swengs.jukeboxbackend.api;
 
+import at.fh.ima.swengs.jukeboxbackend.model.Song;
 import at.fh.ima.swengs.jukeboxbackend.model.User;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -29,5 +30,6 @@ public class RestConfig extends RepositoryRestConfigurerAdapter {
         @Override
         public void configureRepositoryRestConfiguration(RepositoryRestConfiguration config) {
             config.exposeIdsFor(User.class);
+            config.exposeIdsFor(Song.class);
         }
 }
