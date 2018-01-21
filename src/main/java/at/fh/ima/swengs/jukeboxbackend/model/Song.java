@@ -2,8 +2,6 @@ package at.fh.ima.swengs.jukeboxbackend.model;
 
 
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 import javax.persistence.*;
 
 @Entity
@@ -25,19 +23,19 @@ public class Song{
     private int length;
 
     @ManyToOne
-    private User uploader;
+    private User user;
 
     @Version
     long version;
 
     public Song() { }
 
-    public Song(String title, String artist, int length, User uploader) {
+    public Song(String title, String artist, int length, User user) {
         super();
         this.title = title;
         this.artist = artist;
         this.length = length;
-        this.uploader = uploader;
+        this.user = user;
     }
 
     public long getId() {
@@ -72,12 +70,12 @@ public class Song{
         this.length = length;
     }
 
-    public User getUploader() {
-        return uploader;
+    public User getUser() {
+        return user;
     }
 
-    public void setUploader(User uploader) {
-        this.uploader = uploader;
+    public void setUser(User user) {
+        this.user = user;
     }
 
 }

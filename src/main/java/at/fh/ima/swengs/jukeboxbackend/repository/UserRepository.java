@@ -14,5 +14,6 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     public List<User> findAll();
     //public List<User> findByUsernameAndFirstnameAndLastnameAndEmail(@Param("username") String username, @Param("firstname") String firstname, @Param("lastname") String lastname, @Param("email") String email);
+    public List<User> findByUsernameOrFirstnameOrLastnameOrEmail(@Param("username") String username, @Param("firstname") String firstname, @Param("lastname") String lastname, @Param("email") String email);
 
 }
