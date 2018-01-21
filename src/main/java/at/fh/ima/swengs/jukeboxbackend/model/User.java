@@ -43,13 +43,14 @@ public class User{
 
     public User() { }
 
-    public User(long id, String username, String password, String firstname, String lastname, String email, long version) {
+    public User(long id, String username, String password, String firstname, String lastname, String email, Set<Song> songs, long version) {
         this.id = id;
         this.username = username;
         this.password = password;
         this.firstname = firstname;
         this.lastname = lastname;
         this.email = email;
+        this.songs = songs;
         this.version = version;
     }
 
@@ -107,13 +108,5 @@ public class User{
 
     public void setVersion(long version) {
         this.version = version;
-    }
-
-    public Set<Song> getSongs() {
-        return songs;
-    }
-
-    public void setSongs(Set<Song> songs) {
-        this.songs = songs;
     }
 }
