@@ -22,7 +22,8 @@ public class Song{
     @Column(name = "length", nullable = false, length = 3)
     private int length;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "user_id")
     private User user;
 
     @Version

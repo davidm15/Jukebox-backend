@@ -8,6 +8,8 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "user")
@@ -32,6 +34,9 @@ public class User{
 
     @Column(name = "email", nullable = false, length = 30)
     private String email;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private Set<Song> songs = new HashSet<>();
 
     @Version
     long version;
@@ -102,5 +107,13 @@ public class User{
 
     public void setVersion(long version) {
         this.version = version;
+    }
+
+    public Set<Song> getSongs() {
+        return songs;
+    }
+
+    public void setSongs(Set<Song> songs) {
+        this.songs = songs;
     }
 }
