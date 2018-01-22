@@ -1,4 +1,4 @@
-# Jukebox-frontend
+# Jukebox-backend
 Diese Webanwendung wurde im Rahmen der Vorlesung Software Engeneering Selective erstellt. 
 Das Projekt besteht aus zwei Teilen. Das hier zu sehnde [Frontend](https://github.com/davidm15/Jukebox-frontend)und das [Backend](https://github.com/davidm15/Jukebox-backend).
 
