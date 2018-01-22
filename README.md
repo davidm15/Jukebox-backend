@@ -39,8 +39,9 @@ So wurde im ersten Schritt die Grundlage für die Arbeit mit der Datenbank gesch
 Neben diesen Hauptbestandteilen bzw. den Hauptfunktionen wurde eine Basic Authentification, Übersetzung, graphische Anzeige und Validation angestrebt.
 
 # Probleme
-- Bislang konnte eine Integration einer Basic Authentification nicht umgesetzt werden.
+- Eine  Basic Authentification findet derzeit mit Hardcode Credentials statt. Ein Benutzter Directory gibt es nicht.
 - Die Abhängigkeit von einem User zu dessen Songs hat sich als schwieriger herrausgestellt als angenommen.
+- Die geplante Startseite mit Grafiken und Statistiken wird es nur in einer abgeschwächten Form geben.
 
 
 # Beteiligte
